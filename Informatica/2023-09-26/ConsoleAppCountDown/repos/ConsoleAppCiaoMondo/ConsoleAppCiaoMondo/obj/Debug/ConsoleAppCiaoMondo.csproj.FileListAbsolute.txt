@@ -1,0 +1,8 @@
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\bin\Debug\ConsoleAppCiaoMondo.exe.config
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\bin\Debug\ConsoleAppCiaoMondo.exe
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\bin\Debug\ConsoleAppCiaoMondo.pdb
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\obj\Debug\ConsoleAppCiaoMondo.csproj.AssemblyReference.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\obj\Debug\ConsoleAppCiaoMondo.csproj.SuggestedBindingRedirects.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\obj\Debug\ConsoleAppCiaoMondo.csproj.CoreCompileInputs.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\obj\Debug\ConsoleAppCiaoMondo.exe
+C:\Users\mattia.cincotta\source\repos\ConsoleAppCiaoMondo\ConsoleAppCiaoMondo\obj\Debug\ConsoleAppCiaoMondo.pdb

@@ -1,0 +1,16 @@
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.exe.config
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.exe
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.pdb
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.AssemblyReference.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.SuggestedBindingRedirects.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.CoreCompileInputs.cache
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.exe
+C:\Users\mattia.cincotta\source\repos\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.pdb
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.exe.config
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.exe
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\bin\Debug\ConsoleAppDigitA7Segmenti.pdb
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.AssemblyReference.cache
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.SuggestedBindingRedirects.cache
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.csproj.CoreCompileInputs.cache
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.exe
+Z:\TecnProg\2023-09-20\ConsoleAppDigitA7Segmenti\ConsoleAppDigitA7Segmenti\obj\Debug\ConsoleAppDigitA7Segmenti.pdb
