@@ -1,0 +1,234 @@
+﻿<Window x:Class="WpfAppCalcolatriceBitWise.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppCalcolatriceBitWise"
+        mc:Ignorable="d"
+        Title="Calcolatrice BitWise" Height="479" Width="800">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="30" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" RenderTransformOrigin="0.468,0.535">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnZero" Content="0" HorizontalAlignment="Left" Height="60" Margin="203,70,0,0" VerticalAlignment="Top" Width="61" FontSize="20" Click="btnZero_Click" FontFamily="Britannic Bold" FontWeight="Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnUno" Content="1" HorizontalAlignment="Left" Height="60" Margin="264,70,0,0" VerticalAlignment="Top" Width="60" FontSize="20" FontWeight="Bold" Click="btnUno_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnShiftLeft" Content="&lt;&lt;" HorizontalAlignment="Left" Height="60" Margin="324,70,0,0" VerticalAlignment="Top" Width="55" FontWeight="Bold" FontSize="21" Click="btnShiftLeft_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Height="60" Margin="379,71,0,0" VerticalAlignment="Top" Width="60" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1" Background="Snow"/>
+        <TextBox x:Name="txtNumBit" HorizontalAlignment="Left" Height="61" Margin="379,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" TextChanged="txtNumBit_TextChanged" FontFamily="Bodoni MT Black" FontWeight="Bold" FontSize="17" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+        <Button x:Name="btnShiftRight" Content="&gt;&gt;" HorizontalAlignment="Left" Height="60" Margin="439,70,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold" FontSize="21" Click="btnShiftRight_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnNot" Content="NOT" HorizontalAlignment="Left" Height="60" Margin="499,70,0,0" VerticalAlignment="Top" Width="58" FontWeight="Bold" FontSize="18" Click="btnNot_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Mattia Cincotta 3H 2024-02-06" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" Width="337" Height="61" FontSize="20" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="btnUno_2" Content="1" HorizontalAlignment="Left" Height="58" Margin="264,157,0,0" VerticalAlignment="Top" Width="57" FontSize="20" FontWeight="Bold" Click="btnUno_2_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnShiftLeft_2" Content="&lt;&lt;" HorizontalAlignment="Left" Height="58" Margin="321,157,0,0" VerticalAlignment="Top" Width="58" FontWeight="Bold" FontSize="21" Click="btnShiftLeft_2_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Height="58" Margin="379,157,0,0" VerticalAlignment="Top" Width="59" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1" Background="Snow"/>
+        <TextBox x:Name="txtNumBit_2" HorizontalAlignment="Left" Height="58" Margin="379,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="txtNumBit_2_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="17" FontFamily="Bodoni MT Black" FontWeight="Bold" Grid.Column="1" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+        <Button x:Name="btnShiftRight_2" Content="&gt;&gt;" HorizontalAlignment="Left" Height="58" Margin="438,157,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold" FontSize="21" Click="btnShiftRight_2_Click" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnNot_2" Content="NOT" HorizontalAlignment="Left" Height="58" Margin="498,157,0,0" VerticalAlignment="Top" Width="58" FontWeight="Bold" FontSize="18" FontFamily="Britannic Bold" Grid.Column="1" Click="btnNot_2_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnAnd" Content="AND" HorizontalAlignment="Left" Height="53" Margin="68,382,0,0" VerticalAlignment="Top" Width="172" Click="btnAnd_Click" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="25" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnOr" Content="OR" HorizontalAlignment="Left" Height="53" Margin="240,382,0,0" VerticalAlignment="Top" Width="172" Click="btnOr_Click" FontSize="25" FontFamily="Britannic Bold" FontWeight="Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnXor" Content="XOR" HorizontalAlignment="Left" Height="53" Margin="408,382,0,0" VerticalAlignment="Top" Width="172" Click="btnXor_Click" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="25" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Height="60" Margin="75,70,0,0" VerticalAlignment="Top" Width="128" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1" Background="Snow" IsEnabled="False" RenderTransformOrigin="-3.459,0.617"/>
+        <Label x:Name="txtStringBit" Content="" HorizontalAlignment="Left" Margin="75,71,0,0" VerticalAlignment="Top" Width="128" BorderBrush="Black" Height="59" FontFamily="Poor Richard" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <Button Content="" HorizontalAlignment="Left" Height="60" Margin="75,155,0,0" VerticalAlignment="Top" Width="128" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1" Background="Snow"/>
+        <Label x:Name="txtStringBit_2" Content="" HorizontalAlignment="Left" Margin="75,157,0,0" VerticalAlignment="Top" Width="128" BorderBrush="Black" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Poor Richard" FontWeight="Bold" FontSize="20" Grid.Column="1"/>
+        <Button Content="" HorizontalAlignment="Left" Height="60" Margin="75,269,0,0" VerticalAlignment="Top" Width="288" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1" Background="Snow"/>
+        <Label x:Name="txtResult" Content="" HorizontalAlignment="Left" Height="61" Margin="75,267,0,0" VerticalAlignment="Top" Width="290" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="23" FontWeight="Bold" FontFamily="Poor Richard" Grid.Column="1"/>
+        <Button x:Name="btnReset" Content="CANCELLA" HorizontalAlignment="Left" Height="60" Margin="602,76,0,0" VerticalAlignment="Top" Width="128" Click="btnReset_Click" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnReset_2" Content="CANCELLA" HorizontalAlignment="Left" Height="59" Margin="602,163,0,0" VerticalAlignment="Top" Width="128" Click="btnReset_2_Click" FontFamily="Britannic Bold" FontWeight="Bold" FontSize="18" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnReset_Result" Content="CANCELLA" HorizontalAlignment="Left" Height="58" Margin="602,270,0,0" VerticalAlignment="Top" Width="128" Click="btnReset_Result_Click" RenderTransformOrigin="0.447,0.215" FontWeight="Bold" FontSize="18" FontFamily="Britannic Bold" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnZero_2" Content="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="203,157,0,0" VerticalAlignment="Top" Click="btnZero_2_Click" Height="58" Width="61" FontSize="20" FontFamily="Britannic Bold" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
+
